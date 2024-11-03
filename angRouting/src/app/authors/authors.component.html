@@ -1,0 +1,22 @@
+<form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="authorId">Enter Author ID:</label>
+      <input id="authorId" formControlName="authorId" type="text">
+      <button type="submit">Search</button>
+    </div>
+  </form>
+  
+  <!-- Display Author Information -->
+  <div *ngIf="authorData">
+    <h3>Author Details</h3>
+    <p><strong>ID:</strong> {{ authorData.id }}</p>
+    <p><strong>First Name:</strong> {{ authorData.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ authorData.lastName }}</p>
+    <p *ngIf="authorData.bio"><strong>Bio:</strong> {{ authorData.bio }}</p>
+  </div>
+  
+  <!-- Display Message if Author Not Found -->
+  <div *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+  
